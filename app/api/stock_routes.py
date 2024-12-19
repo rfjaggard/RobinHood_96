@@ -30,7 +30,6 @@ def get_all_stocks():
 @login_required
 def buy_stock(stock_id):
     """
-    Add stock to user's portfolio
     Adds a stock to the current user's portfolio. 
     Updates the account balance.
     """
@@ -55,7 +54,7 @@ def buy_stock(stock_id):
     portfolio_entry = Portfolio(
         user_id=user.id,
         stock_id=stock.id,
-        shares=shares,
+        quantity=stock.quantity,
         price=stock.price
     )
     db.session.add(portfolio_entry)
