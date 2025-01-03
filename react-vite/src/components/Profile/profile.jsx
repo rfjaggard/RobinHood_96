@@ -1,4 +1,5 @@
-import React from 'react';
+import { NavLink } from "react-router-dom";
+import { AccountBalance } from "../AccountBalance"
 
 function Profile({ username, firstname, lastname, email }) {
   return (
