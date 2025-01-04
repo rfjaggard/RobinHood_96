@@ -14,7 +14,7 @@ import { deletePortfolio, createPortfolio, editPortfolio } from "../../redux/por
 
 import "./AllPortfolios.css";
 
-import CustomModal from "./CustomModal"
+import CustomModal from "../../context/CustomModal";
 
 /***********************************************************************************************************************************************/
 //*                             INIT/Function declaration
@@ -107,7 +107,7 @@ function AllPortfolios(){
    
     const [showEdit, setShowEdit] = useState(false);
     const [editErrors, setEditErrors] = useState({});
-    const [portfolioToEdit, setPortfolioToEdit] = useState();
+    const [nameToEdit, setNameToEdit] = useState();
     const [editName,setEditName] = useState()
 
     const handleEdit = (e, portfolioId) => {
@@ -119,27 +119,22 @@ function AllPortfolios(){
         if (editName.length < 1){
             validationErrors.name = "Name must be at least 1 character";
         }
-        portfolios.forEach((portfolio) => {
-            if(editName === portfolio.portfolio_name){
-                validationErrors.editName = "Name must be unique";
-            }
-        })
         if (Object.keys(validationErrors).length > 0) {
             setEditErrors(validationErrors);
             return;
         }
 
-        dispatch(editPortfolio({name:editName,portfolioId}));
+        dispatch(editName({name:editName,userId}));
         setShowEdit(false);
     };
 
     //toggle for modal
-    const editEvent = (e, portfolio) => {
+    const editEvent = (e, name) => {
         e.preventDefault();
         e.stopPropagation();
         
-        if (portfolio) {
-            setPortfolioToEdit(portfolio);
+        if (name) {
+            setNameToEdit(portfolio);
             setEditName(portfolio.portfolio_name);
         } else {
             setPortfolioToEdit(null);
