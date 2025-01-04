@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import OpenModalButton from './OpenModalButton';
-import DeleteStockModal from './DeleteStockModal';
-import { fetchStockDetails } from './actions'; // Replace with your actual action import
+import CloseStockModal from './CloseStockModal';
 
 function StockDetails() {
   const dispatch = useDispatch();
@@ -13,46 +12,57 @@ function StockDetails() {
   const sessionUser = useSelector(state => state.session.user);
 
   useEffect(() => {
-    dispatch(fetchStockDetails(stockId));
+    dispatch(StockDetails(stockId));
   }, [dispatch, stockId]);
 
   return (
     <>
       {StockDetails && (
-        <div className="details-wrapper">
+        <div>
           <header>
-            <h1>{StockDetails.name}</h1>
-            <h3>{`Price: ${StockDetails.price}`}</h3>
+            <div>logo</div>
+            <input type="text" placeholder="search-bar" />
+            <nav>
+              <a href="/portfolios">portfolios</a>
+              <a href="/watchlist">watchlist</a>
+              <a href="/profile">profile</a>
+            </nav>
           </header>
-          <div className="images-wrapper">
-            <div id="preview-image-wrapper">
-              <img src={StockDetails.StockImages?.find(image => image.preview)?.url} alt="Stock Preview" />
-            </div>
-            {StockDetails.StockImages?.map(image => !image.preview && (
-              <div key={image.id}>
-                <img src={image?.url} alt="Stock Image" />
+          <main>
+            <section>
+              <h1>{StockDetails.name}</h1>
+              <h3>{`Price: ${StockDetails.price}`}</h3>
+            </section>
+            <section>
+              <div>
+                <img src={StockDetails.StockImages?.find(image => image.preview)?.url} alt="Stock Preview" />
               </div>
-            ))}
-          </div>
-          <section>
-            <h2>{`Owned by ${StockDetails.UserId.firstName} ${StockDetails.UserId.lastName}`}</h2>
-            <p>{StockDetails.description}</p>
-          </section>
-          <div className="reserve">
-            <div className="price">{`Price: $${StockDetails.price}`}</div>
-            <button onClick={() => alert("Feature...")}>Reserve</button>
-          </div>
-          <div className="bar" />
-          <div key={StockDetails.id}>
-            <h3>{StockDetails.UserId.firstName}</h3>
-            {sessionUser && sessionUser.id === StockDetails.UserId.id && (
-              <OpenModalButton
-                buttonText='Delete'
-                modalComponent={<DeleteStockModal stockId={StockDetails.id} />}
-                onModalClose={() => navigate(`/Stocks`)}
-              />
-            )}
-          </div>
+              <div>
+                <button onClick={() => alert("Buy")}>Buy</button>
+                <button onClick={() => alert("Sell")}>Sell</button>
+                <button onClick={() => alert("Add to List")}>Add to List</button>
+              </div>
+            </section>
+            <section>
+              <h2>com-info</h2>
+              <p>{StockDetails.description}</p>
+              <h2>Owned by {StockDetails.UserId.firstName} {StockDetails.UserId.lastName}</h2>
+            </section>
+            <section>
+              <h2>chat-gpt</h2>
+              {/* placeholder */}
+            </section>
+            <div>
+              <h3>{StockDetails.UserId.firstName}</h3>
+              {sessionUser && sessionUser.id === StockDetails.UserId && (
+                <OpenModalButton
+                  buttonText='Close'
+                  modalComponent={<CloseStockModal stockId={StockDetails.id} />}
+                  onModalClose={() => navigate(`/Stocks`)}
+                />
+              )}
+            </div>
+          </main>
         </div>
       )}
     </>
@@ -60,3 +70,4 @@ function StockDetails() {
 }
 
 export default StockDetails;
+
