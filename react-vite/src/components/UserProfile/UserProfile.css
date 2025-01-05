@@ -23,22 +23,6 @@
     text-align: center;
 }
 
-.top button {
-    width: 125px;
-    /* height: 25px; */
-    color: white;
-    background-color: black;
-    padding: 5px;
-    border: none;
-    border-radius: 5px;
-}
-
-.top button:hover {
-    width: 135px;
-    height: 30px;
-}
-
-
 .profileSec1 {
   display: flex;
   width: 100%;

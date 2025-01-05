@@ -38,8 +38,8 @@ function Navigation() {
               <NavLink className="navBarLink" to="/stocks">
                 Stocks
               </NavLink>
-            </div>
-            <ProfileButton />
+            </div>            
+            <ProfileButton />           
           </>
         ) : (
           <>

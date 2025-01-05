@@ -1,12 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { thunkDeleteUser, thunkLogout } from "../../redux/session";
+import { thunkDeleteUser } from "../../redux/session";
 import { getAllPortfolios } from "../../redux/portfolios";
 import { showWatchlistsThunk } from "../../redux/watchlist";
 import StockTickerAnimation from "../StockTickerAnimation/StockTickerAnimation";
 import CustomModal from "../AllPortfolios/CustomModal";
 import "./UserProfile.css";
+import SearchBar from "../SearchBar/SearchBar";
 
 const UserProfile = () => {
   const dispatch = useDispatch();
@@ -23,12 +24,6 @@ const UserProfile = () => {
     dispatch(getAllPortfolios());
   }, [dispatch]);
 
-  const logout = (e) => {
-    e.preventDefault();
-    dispatch(thunkLogout());
-    navigate("/");
-  };
-
   const deleteUser = async (e) => {
     e.preventDefault();
     await dispatch(thunkDeleteUser(user.id));
@@ -42,10 +37,12 @@ const UserProfile = () => {
 
   return (
     <>
+      <section className="search-bar-section">
+        <SearchBar />
+      </section>
       <div className="userProfile">
         <div className="top">
           <h1>{user?.username} Profile</h1>
-          <button onClick={logout}>Log Out</button>
         </div>
         <div className="profileSec1">
           <div className="userImage">
@@ -105,7 +102,10 @@ const UserProfile = () => {
                 </div>
               ))
             ) : (
-              <p>No portfolio available. Create your first portfolio <Link to={"/portfolios"}>here</Link>!</p>
+              <p>
+                No portfolio available. Create your first portfolio{" "}
+                <Link to={"/portfolios"}>here</Link>!
+              </p>
             )}
           </div>
           <div className="portfolioWatchlist">
@@ -135,7 +135,10 @@ const UserProfile = () => {
                 </div>
               ))
             ) : (
-              <p>No watchlists available. Create your first watchlist <Link to={`/watchlists`}>here</Link>!</p>
+              <p>
+                No watchlists available. Create your first watchlist{" "}
+                <Link to={`/watchlists`}>here</Link>!
+              </p>
             )}
           </div>
         </div>
