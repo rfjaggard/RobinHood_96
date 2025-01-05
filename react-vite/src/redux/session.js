@@ -184,6 +184,7 @@ export const thunkDeleteUser = (userId) => async (dispatch) => {
 
 //deposite funds
 export const depositFunds = (info) => async (dispatch) => {
+  console.log("STORE TEST= ", info)
   const request = await fetch(`/api/users/add_money/${info.userId}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
