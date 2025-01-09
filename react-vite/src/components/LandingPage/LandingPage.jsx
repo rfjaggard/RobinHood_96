@@ -77,12 +77,12 @@ const LandingPage = () => {
 				className="below-investing-image"
 			/>
 
-			<section className="crypto-section">
+			<section className="crypto-section investing">
 				<div className="crypto-div">
 					<h1>Group 96 Investors Crypto</h1>
 					<p>Get started with Group 96 Investors Crypto. Trade crypto 24/7.</p>
 					<button
-						className="crypto-learn-more-button"
+						className="crypto-learn-more-button hero-explore-button"
 						onClick={() => alert("New feature coming soon!")}
 					>
 						Learn More
@@ -96,10 +96,10 @@ const LandingPage = () => {
 				className="below-crypto-image"
 			/>
 
-			<section className="protection-guarantee-section">
-				<h2>Group 96 Investors Protection Guarantee</h2>
+			<section className="protection-guarantee-section investing">
+				<h1>Group 96 Investors Protection Guarantee</h1>
 				<button
-					className="protection-guarantee-button"
+					className="protection-guarantee-button hero-explore-button"
 					onClick={() => alert("New feature coming soon!")}
 				>
 					Learn more about our committments
@@ -110,18 +110,18 @@ const LandingPage = () => {
 				<p>We&apos;ve got your back. We&apos;re available to you 24/7.</p>
 			</section>
 
-			<section className="better-investor-section">
-				<h2>Become a Better Investor on the Go</h2>
+			<LandingSignupGlow />
+
+			<section className="better-investor-section investing">
+				<h1>Become a Better Investor on the Go</h1>
 				<p>Take charge of your financial future with our easy-to-use app.</p>
 				<button
-					className="better-investor-button"
+					className="better-investor-button hero-explore-button"
 					onClick={() => navigate("/signup")}
 				>
 					Sign up to access Group 96 Investors Learn
 				</button>
 			</section>
-
-			<LandingSignupGlow />
 
 			<Footer />
 		</div>

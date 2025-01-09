@@ -47,6 +47,14 @@
 }
 
 /* Portfolio items */
+.homePortfolio {
+	text-align: center;
+}
+
+.homePortfolio h2 {
+	justify-content: center;
+}
+
 .home-portfolio-ul {
 	padding: 0;
 }

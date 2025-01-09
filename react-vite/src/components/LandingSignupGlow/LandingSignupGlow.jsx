@@ -7,9 +7,9 @@ const LandingSignupGlow = () => {
       <div className="landingGlow">
         <h2 className="landingGlowH2">Join a New Generation</h2>
         <h2 className="landingGlowH2">of Investors Today!</h2>
-        <Link className="landingGlowLink" to={"/signup"}>
+        {/* <Link className="landingGlowLink" to={"/signup"}>
           <button className="landingSignupBTN">Signup</button>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

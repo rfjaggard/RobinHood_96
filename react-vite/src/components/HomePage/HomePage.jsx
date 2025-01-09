@@ -61,7 +61,7 @@ const HomePage = () => {
 
 				<AIAssistant />
 
-				<section>
+				<section className="homePortfolio">
 					<h2>Your Portfolios</h2>
 					{portfolios && portfolios.length > 0 ? (
 						<ul className="home-portfolio-ul">
@@ -70,7 +70,7 @@ const HomePage = () => {
 									<Link to={`/portfolios/${portfolio.portfolio_id}`}>
 										<div className="portfolio-content">
 											<h3>{portfolio.portfolio_name}</h3>
-											{portfolio.stocks.length > 0 && (
+											{portfolio.stocks?.length > 0 && (
 												<p>{`Stocks: ${portfolio.stocks.length}`}</p>
 											)}
 										</div>

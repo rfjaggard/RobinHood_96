@@ -29,6 +29,10 @@
 	margin-bottom: 8px;
 }
 
+.watchlist-title:hover {
+	color: red;
+}
+
 .watchlist-items {
 	list-style: none;
 	padding: 0;
@@ -42,9 +46,15 @@
 .stock-link {
 	display: flex;
 	justify-content: space-between;
+	text-decoration: none;
 	padding: 6px; /* Reduce padding for compact design */
 	background-color: #fff;
 	border: 1px solid #e0e0e0;
 	border-radius: 4px;
 	font-size: 0.9rem; /* Smaller font size */
+	color: green;
+}
+
+.stock-link:hover {
+	color: red;
 }
