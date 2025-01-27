@@ -115,13 +115,13 @@ const Footer = () => {
 				<h4>Meet our team!</h4>
 				<div className="team-member">
 				<div className="member-info">
-					<p>Xiaoxue Wang</p>
+					<p>Xiaoxue(Alice) Wang</p>
 					<div className="team-link">
 						<a href="https://github.com/Xiaoxue895">
 							<FaGithub />
 						</a>
-						<a href="https://github.com/Xiaoxue895">
-							{/* dont have linkin now */}
+						<a href="https://www.linkedin.com/in/xiaoxue-alice-wang-33b70b313/">
+							
 							<FaLinkedin />
 						</a>
 					</div>
